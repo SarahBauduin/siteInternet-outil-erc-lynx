@@ -5,8 +5,11 @@ ui <- fluidPage(
     
     theme = shinytheme("flatly"),
     
+    navbarPage(
+        title = "",
+        tabPanel(h4(tags$b("Outil ERC-Lynx")),
     # ---- Accès outil ----
-    HTML('<center><img src="entete.PNG"></center>'),
+    HTML('<center><img src="entete.PNG" width="60%" height="60%"></center>'),
     h3("Éviter, réduire et compenser le risque de mortalité du lynx par collision avec les véhicules de transport"),
     includeMarkdown("www/projetDescription.md"),
     
@@ -19,9 +22,10 @@ ui <- fluidPage(
     tags$b("supports et informations pour faciliter l'utilisation"),
            "de cet outil.")
     ),
-    br(),
+    br()
+        ),
     
-    tabsetPanel(
+
         
         # ---- Manuel d'utilisation ----
         tabPanel(h4(tags$b("Manuel d'utilisation")), 
@@ -94,9 +98,16 @@ ui <- fluidPage(
                  "Foire aux questions :",
                  br(),
                  br(),
+                 tags$p(tags$b("Modifier les populations de lynx")),
                  tags$ul(
-                     tags$li(tags$b("Question 1 :")),
-                     tags$em("Réponse 1"),
+                     tags$li(tags$b("Les données de présence de lynx utilisées pour recréer des populations théoriques sont de 2017.",
+                                    "Je sais que depuis cette date, 5 lynx sont morts dans mon aire d'étude.",
+                                    "Est-ce que je dois retirer ces 5 lynx dans mon scénario d'aménagement ?")),
+                     tags$em("Non. L'impact du scénario d'aménagement que vous testez est comparé à un état original où ces 5 lynx sont présents.",
+                     "Si vous retirez 5 lynx, cela fait partie des actions d'aménagement que vous souhaitez testées.",
+                     "Les résultats de votre sécnario d'aménagement seront forcément négatifs sur la viabilité du lynx car vous 'dites' que votre aménagement va tuer 5 lynx.",
+                     "Les modifications faites usr les populations de lynx doivent représenter les impacts d'aménagements à tester, pas une mise à jour des données.",
+                     "Une mise à jour des données lynx sera effectuée par notre équipe."),
                      br(),
                      br(),
                      tags$li(tags$b("Question 2 :")),
